@@ -1,8 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../src/components/Navbar'
+import Hero from '../src/components/Hero'
+import Models from '../src/components/Models'
+import type { GetServerSideProps } from 'next'
+import type { ModelsListIF } from '../src/interfaces'
 
-const Home: NextPage = () => {
+type Props = {
+  models: ModelsListIF[]
+}
+
+const Home: NextPage <Props> = ({models}) => {
   return (
     <div>
       <Head>
@@ -11,8 +19,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar/>
+      <Hero/>
+      <Models models={models}/>
     </div>
   )
 }
 
 export default Home
+
+export const getStaticProps:GetServerSideProps = async () => {
+  const res = await fetch("https://challenge.agenciaego.tech/api/models/")
+  const models = await res.json()
+  return {
+      props: {
+          models
+      }
+  }
+}

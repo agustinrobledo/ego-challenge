@@ -26,6 +26,7 @@ const Navbar:React.FC = () => {
                 width={"100%"}
                 height={"50px"}
                 justify="space-between"
+                borderBottom="1px solid #e5e5e5"
             >
                 <Link href="/">
                     <Image
