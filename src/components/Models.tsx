@@ -1,6 +1,6 @@
-import { Flex, Menu, MenuButton, MenuList, MenuItem, Button, Divider} from "@chakra-ui/react"
+import { Flex, Menu, MenuButton, MenuList, MenuItem, Button, Divider, Select } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Card from "./Card"
 import type { ModelsListIF } from "../interfaces"
 type Props = {
@@ -8,8 +8,39 @@ type Props = {
 }
 
 const Models:React.FC<Props> = ({models}) => {
-    const [carModels, setCarModels] = useState<ModelsListIF[]>(models)
-    console.log(models)
+    const [allModels, setallModels] = useState<ModelsListIF[]>(models)
+    const [filter, setFilter] = useState<string>("")
+    const [sort, setSort] = useState<string>("")
+    const [modelsFiltered, setModelsFiltered] = useState<ModelsListIF[]>(models)
+    useEffect(() => {
+        setModelsFiltered(allModels)
+    }, [allModels])
+    const handleFilter = (e:any) => {
+        setFilter(e.target.value)
+        if(e.target.value === ""){
+            setModelsFiltered(allModels)
+        }else{
+        setModelsFiltered(allModels.filter(model => model.segment.toLowerCase() === e.target.value.toLowerCase()))
+        }
+    }
+
+    const handleSort = (e:any) => {
+        setSort(e.target.value)
+        if(e.target.value === ""){
+            setModelsFiltered(allModels)
+        }else{
+            setModelsFiltered(modelsFiltered.sort((a, b) => {
+                if (e.target.value === "Precio") {
+                    return a.price - b.price
+                } else if (e.target.value === "Año") {
+                    return a.year - b.year
+                } else if (e.target.value === "Alfabético") {
+                    return  a.name.localeCompare(b.name)
+                }
+            }))
+        }
+    }
+
     return (
         <>
             <Flex
@@ -17,40 +48,37 @@ const Models:React.FC<Props> = ({models}) => {
             justifyContent="space-between"
             mt="1rem"
             >
-                <Menu
-                >
-                    <MenuButton 
-                    as={Button} 
-                    ml="10px"
-                    rightIcon={<ChevronDownIcon/>}
-                    backgroundColor="white"
-                    >
-                        Filtrar por
-                    </MenuButton>
-                    <MenuList>
-                        <MenuItem>Download</MenuItem>
-                        <MenuItem>Create a Copy</MenuItem>
-                    </MenuList>
-                </Menu>
-                <Menu>
-                    <MenuButton 
-                    as={Button}  
-                    rightIcon={<ChevronDownIcon/>}
-                    mr="10px" 
-                    backgroundColor="white"
-                    >
-                        Ordenar Por
-                    </MenuButton>
-                    <MenuList>
-                        <MenuItem>Download</MenuItem>
-                        <MenuItem>Create a Copy</MenuItem>
-                        <MenuItem>Mark as Draft</MenuItem>
-                    </MenuList>
-                </Menu>
+                <Select 
+                ml="1rem"
+                width="8rem"
+                backgroundColor="white"
+                border="none"
+                value={filter}
+                fontWeight="bold"
+                onChange={handleFilter}
+                placeholder="Filtrar por">          
+                        <option value="Sedan">Sedan</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Pickups y Comerciales">Pickups y Comerciales</option>
+                        <option value="SUVs">SUVs</option>
+                </Select>
+                <Select 
+                mr="1rem"
+                width="8rem"
+                backgroundColor="white"
+                border="none"
+                fontWeight="bold"
+                value={sort}
+                onChange={handleSort}
+                placeholder="Ordenar por">                  
+                        <option value="Precio">Precio</option>
+                        <option value="Año">Año</option>
+                        <option value="Alfabético">Alfabético</option>
+                </Select>
             </Flex>
             <Divider width={"100%"} />
                 {
-                    models.map(model => (
+                    modelsFiltered.map(model => (
                         <Card model={model} key={model.id}/>
                     ))
                 }
