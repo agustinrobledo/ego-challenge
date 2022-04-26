@@ -1,4 +1,4 @@
-import { Text, Flex, Center, Divider } from "@chakra-ui/react"
+import { Text, Flex } from "@chakra-ui/react"
 
 
 const Hero:React.FC = () => {

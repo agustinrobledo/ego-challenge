@@ -12,7 +12,7 @@ export type ModelIF = {
     id: number,
     name: string,
     year: number,
-    segmen: number,
+    segment: number,
     price: number,
     title: string,
     description: string,
@@ -22,7 +22,7 @@ export type ModelIF = {
         {
             name: string,
             description: string,
-            photo: string   
+            image: string   
         }
     ],
     model_highlights: [

@@ -5,6 +5,7 @@ import Hero from '../src/components/Hero'
 import Models from '../src/components/Models'
 import type { GetServerSideProps } from 'next'
 import type { ModelsListIF } from '../src/interfaces'
+import Footer from '../src/components/Footer'
 
 type Props = {
   models: ModelsListIF[]
@@ -21,6 +22,7 @@ const Home: NextPage <Props> = ({models}) => {
       <Navbar/>
       <Hero/>
       <Models models={models}/>
+      <Footer/>
     </div>
   )
 }

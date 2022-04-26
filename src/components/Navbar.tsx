@@ -50,7 +50,7 @@ const Navbar:React.FC = () => {
                     placement='right'
                     onClose={onClose}
                     finalFocusRef={btnRef}
-                    size="full"
+                    size="md"
                 >
                     <DrawerOverlay width={"100%"}/>
                     <DrawerContent width={"100%"}>
