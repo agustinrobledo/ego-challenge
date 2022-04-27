@@ -59,7 +59,7 @@ const Models: React.FC<Props> = ({model}) => {
                     </Text>
                     <Text
                     as="h2"
-                    fontSize={["4xl", "4xl", "3xl", "5xl"]}
+                    fontSize={["4xl", "4xl", "2xl", "5xl"]}
                     fontWeight="bold"
                     ml="2rem"
                     >
