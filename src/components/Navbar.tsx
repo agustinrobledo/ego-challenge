@@ -11,11 +11,17 @@ import {
     useDisclosure,
     Divider,
     DrawerHeader,
+    Text
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRef } from "react";
 
-const Navbar:React.FC = () => {
+type Props = {
+    models?: boolean,
+    modelInfo?: boolean
+}
+
+const Navbar:React.FC<Props> = ({models, modelInfo}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     return (
@@ -23,20 +29,67 @@ const Navbar:React.FC = () => {
                 as="nav"
                 align="center"
                 width={"100%"}
-                height={"50px"}
+                height={["50px", "50px", "80px", "80px"]}
                 justify="space-between"
                 borderBottom="1px solid #e5e5e5"
                 position="fixed"
                 zIndex={1}
                 backgroundColor="white"
-            >
-                <Link href="/">
-                    <Image
-                        src="/logo.svg"
-                        alt= "ego"
-                        ml={"10px"}
-                    />
-                </Link>
+            >   
+                <Flex
+                gap="1rem"
+                align="center"
+                height={"100%"}
+                >
+                    <Link href="/">
+                        <Image
+                            src="/logo.svg"
+                            alt= "ego"
+                            ml={"10px"}
+                            _hover={{
+                                cursor: "pointer",
+                            }}
+                        />
+                    </Link>
+                    <Flex
+                    height={"100%"}
+                    display={["none", "none", "flex", "flex"]}
+                    align="center"
+                    justify="center"
+                    ml="4rem"
+                    fontSize="0.9rem"
+                    width={"6rem"}
+                    fontWeight="600"
+                    borderBottom={models ? "4px solid red" : "none"}
+                    >
+                        <Link href="/">
+                            <Text
+                            as="h1"
+                            _hover={{
+                                cursor: "pointer",
+                            }}
+                            >
+                                Modelos
+                            </Text>
+                        </Link>
+                    </Flex>
+                    <Flex
+                    height={"100%"}
+                    display={["none", "none", "flex", "flex"]}
+                    align="center"
+                    justify="center"
+                    fontSize="0.9rem"
+                    fontWeight="600"
+                    width={"10rem"}
+                    borderBottom={modelInfo ? "4px solid red" : "none"}
+                    >
+                        <Text
+                        as="h1"
+                        >
+                            Ficha de modelo
+                        </Text>
+                    </Flex>
+                </Flex>
                 <Button 
                 ref={btnRef} 
                 onClick={onOpen}

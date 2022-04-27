@@ -81,30 +81,39 @@ const Models:React.FC<Props> = ({models}) => {
                 <Button
                 value="Sedan"
                 onClick={handleFilter}
+                backgroundColor={filter === "Sedan" ? "#f7f7f7" : "transparent"}
                 >
                     Sedan
                 </Button>
                 <Button
                 value="Hatchback"
                 onClick={handleFilter}
+                backgroundColor={filter === "Hatchback" ? "#f7f7f7" : "transparent"}
+                borderRadius="18px"
                 >
                     Hatchback
                 </Button>
                 <Button
                 value="Pickups y Comerciales"
                 onClick={handleFilter}
+                backgroundColor={filter === "Pickups y Comerciales" ? "#f7f7f7" : "transparent"}
+                borderRadius="18px"
                 >
                     Pickups y Comerciales
                 </Button>
                 <Button
                 value="SUVs"
                 onClick={handleFilter}
+                backgroundColor={filter === "SUVs" ? "#f7f7f7" : "transparent"}
+                borderRadius="18px"
                 >
                     SUVs
                 </Button>
                 <Button
                 value=""
                 onClick={handleFilter}
+                backgroundColor={filter === "" ? "#f7f7f7" : "transparent"}
+                borderRadius="18px"
                 >
                     Todos
                 </Button>

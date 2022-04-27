@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next/types"
 import type { ModelIF } from "../../src/interfaces"
 import Navbar from "../../src/components/Navbar"
 import { Flex, Image, Text } from "@chakra-ui/react"
+import Footer from "../../src/components/Footer"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -25,14 +26,15 @@ const Models: React.FC<Props> = ({model}) => {
 
     return(
         <>
-            <Navbar />
+            <Navbar modelInfo/>
             <Flex
             width="100%"
             alignContent={["center", "center", "space-between", "space-between"]}
             gap={["2rem", "2rem", "2rem", "10rem"]}
             justifyContent="center"
             direction={["column", "column", "row", "row"]}
-            paddingTop={["2rem", "2rem", "2rem", "2rem"]}
+            paddingTop={["2rem", "2rem", "5rem", "5rem"]}
+            paddingBottom={["2rem", "2rem", "5rem", "5rem"]}
             >
                 <Image 
                 src={model.thumbnail} 
@@ -89,9 +91,9 @@ const Models: React.FC<Props> = ({model}) => {
                     emulateTouch
                     showStatus={false}
                     showArrows={false}
-                    centerSlidePercentage={50}
+                    showIndicators={false}
+                    autoPlay
                     centerMode
-                    renderIndicator={false}
                     >
                     {model.model_features.map((feature, index) => {
                             return(
@@ -102,10 +104,10 @@ const Models: React.FC<Props> = ({model}) => {
                                 gap="1rem"
                                 >
                                     <Image
-                                    boxSize="90%"
-                                    objectFit="cover"
+                                    boxSize="80%"
                                     mx="auto"
                                     src={feature.image}
+                                    fit="contain"
                                     />
                                     <Text
                                     as="h1"
@@ -173,6 +175,7 @@ const Models: React.FC<Props> = ({model}) => {
                             )
                         })}
             </Flex>
+            <Footer/>
         </>
     )
 }
