@@ -28,6 +28,7 @@ const Models:React.FC<Props> = ({models}) => {
         if(e.target.value === ""){
             setModelsFiltered(allModels)
         }else{
+            //@ts-ignore
             setModelsFiltered(modelsFiltered.sort((a, b) => {
                 if (e.target.value === "Precio") {
                     return a.price - b.price

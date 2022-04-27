@@ -5,8 +5,10 @@ Consiste en una aplicación que cuenta con lista de productos y pagina de detall
 
 Los productos se obtienen de una API brindada por EGO.
 
-Para correr el proyecto usar los siguientes comandos: <br>
+<img src="public/screenshot.png"/> 
 <br>
+
+### Para correr el proyecto usar los siguientes comandos: <br>
 <code>git clone https://github.com/agustinrobledo/ego-challenge.git </code>
 
 <code>cd ego-challenge </code>
@@ -15,6 +17,6 @@ Para correr el proyecto usar los siguientes comandos: <br>
 
 <code>npm run dev </code>
 
-Para ver el proyecto funcionando, utilizar el siguiente link:
+### Para ver el proyecto funcionando, utilizar el siguiente link:
 
-<a href=#> ego-challenge </a>
+<a href=#> <strong>ego-challenge</strong> </a>
