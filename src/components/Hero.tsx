@@ -16,6 +16,7 @@ const Hero:React.FC = () => {
                 letterSpacing="-0.7px"
                 ml="1rem"
                 mt="1rem"
+                paddingTop="5rem"
                 >
                     Descubrí todos los Modelos
                 </Text>

@@ -19,7 +19,6 @@ const Navbar:React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
     return (
-        <>
             <Flex
                 as="nav"
                 align="center"
@@ -27,6 +26,9 @@ const Navbar:React.FC = () => {
                 height={"50px"}
                 justify="space-between"
                 borderBottom="1px solid #e5e5e5"
+                position="fixed"
+                zIndex={1}
+                backgroundColor="white"
             >
                 <Link href="/">
                     <Image
@@ -140,7 +142,6 @@ const Navbar:React.FC = () => {
                     </DrawerContent>
                 </Drawer>
             </Flex>
-        </>
     )
 }
 
