@@ -16,7 +16,3 @@ Los productos se obtienen de una API brindada por EGO.
 <code>npm install </code>
 
 <code>npm run dev </code>
-
-### Para ver el proyecto funcionando, utilizar el siguiente link:
-
-<a href=#> <strong>ego-challenge</strong> </a>
