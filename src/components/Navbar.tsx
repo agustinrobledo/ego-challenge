@@ -90,7 +90,8 @@ const Navbar:React.FC<Props> = ({models, modelInfo}) => {
                         </Text>
                     </Flex>
                 </Flex>
-                <Button 
+                <Button
+                //@ts-ignore
                 ref={btnRef} 
                 onClick={onOpen}
                 backgroundColor="transparent"
@@ -104,6 +105,7 @@ const Navbar:React.FC<Props> = ({models, modelInfo}) => {
                     isOpen={isOpen}
                     placement='right'
                     onClose={onClose}
+                    //@ts-ignore
                     finalFocusRef={btnRef}
                     size="md"
                 >
