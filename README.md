@@ -8,7 +8,7 @@ Los productos se obtienen de una API brindada por EGO.
 <img src="public/screenshot.png"/> 
 <br>
 
-### Para correr el proyecto usar los siguientes comandos: <br>
+### Para correr el proyecto localmente usar los siguientes comandos: <br>
 <code>git clone https://github.com/agustinrobledo/ego-challenge.git </code>
 
 <code>cd ego-challenge </code>
@@ -16,3 +16,6 @@ Los productos se obtienen de una API brindada por EGO.
 <code>npm install </code>
 
 <code>npm run dev </code>
+
+### Para ver el deploy del proyecto visitar el siguiente link: 
+<a href="https://ego-challenge-tau.vercel.app"><strong>EGO - Challenge</strong></a> 
